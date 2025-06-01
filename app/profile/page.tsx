@@ -5,6 +5,7 @@ import { LogoSvg, TextBoxIcon } from "@/components/Icons";
 import MyQuoteCard from "@/components/MyQuoteCard";
 import QuoteCard from "@/components/Quotecard";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 interface Quote {
     id: number;
@@ -118,7 +119,12 @@ export default function Page() {
             <TextBoxIcon className="h-14 px-4  " />
          </div>
          
-            
+            <motion.div
+         initial={{ opacity: 0, scale: 0.8 }} 
+         animate={{ opacity: 1, scale: 1 }} 
+         transition={{ duration: 0.3 }} 
+         viewport={{ once: false, amount: 0.2 }} 
+         >
          <div className="flex flex-wrap justify-center items-center gap-24 px-8 ">
          
                  {myQuote?.map((item) => {
@@ -137,6 +143,6 @@ export default function Page() {
                      })}
                    
          </div>    
-
+         </motion.div>
       </div>
    ) };
