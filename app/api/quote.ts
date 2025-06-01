@@ -5,6 +5,11 @@ interface AddQuoteInput {
     title: string;
 }
 
+interface EditInput {
+   id: number;
+   title: string;
+}
+
 const quoteApi = {
     addQuote: (input: AddQuoteInput, token: string) =>
     axiosInstance.post('/quote', input, {
@@ -27,8 +32,20 @@ const quoteApi = {
         Authorization: `Bearer ${token}`,
       },
     }),
-   //  getMyVoteQuote: () => axiosInstance.get('/quote/my-vote'),
-   //  getQuoteBySearchInput: (input: string) => axiosInstance.get(`/quote/search?term=${input}`)
-}
-
+     getMyVote: (token: string) => axiosInstance.get('/quote/myvote', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }),
+    getMyQuote: (token: string) => axiosInstance.get('/quote/myquote', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }),
+     editQuote: (input: EditInput, token: string) => axiosInstance.patch(`/quote`, input , {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }),
+};
 export default quoteApi

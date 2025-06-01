@@ -23,7 +23,7 @@ const Sidebar = () => {
 
   return (
     <div className="w-24 h-screen rounded-2xl flex flex-col items-center justify-between p-4 pt-4">
-         <LogoSvg />
+         <LogoSvg className="text-white" />
 
         <div className="flex flex-col items-center gap-10 mt-10">
          <div onClick={onCilckHome}>

@@ -1,5 +1,5 @@
 "use client";
-import { PostIcon, SearchIcon, TextBoxIcon } from "@/components/Icons";
+import { LogoSvg, PostIcon, SearchIcon, TextBoxIcon } from "@/components/Icons";
 import QuoteCard from "@/components/Quotecard";
 import Searchbox from "@/components/SearchBox";
 import { ChangeEvent, useEffect, useState } from "react";
@@ -34,7 +34,7 @@ export default function HomePage() {
  const [user, setUser] = useState<User>();
  const [allQuote, setAllQuote] = useState<Quote[]>([]);
  const [quote, setQuote] = useState('')
-const router = useRouter();
+
 
 
    const fetchUser = async () => {
@@ -131,6 +131,8 @@ const router = useRouter();
   <>
       <div className="w-full h-full overflow-scroll ">
 
+        
+
          <div className="fixed w-full flex justify-center items-center -ml-14 mt-8">
             <Searchbox onSearch={handleSearch}  />  
          </div>
@@ -157,12 +159,21 @@ const router = useRouter();
             </div> 
          </div> 
 
-         <div className="flex items-center hover:cursor-pointer" onClick={() => fetchAllQuote() }>
-               <h1 className="font-bold text-5xl mt-20 mb-10 pl-14"> Quotes </h1>
-               <TextBoxIcon className="h-16 px-4  " />
+          
+         <div className="flex justify-between items-baseline ">
+            <div className="flex items-center hover:cursor-pointer" onClick={() => fetchAllQuote() }>
+                  <h1 className="font-bold text-5xl mt-20 mb-10 pl-14"> Quotes </h1>
+                  <TextBoxIcon className="h-16 px-4  " />
+            </div>
+            <div className="flex gap-4 items-baseline px-10">
+               <h1 className="font-bold text-3xl mt-20 mb-10 "> Hello, {user?.username} </h1>
+               <LogoSvg className="w-12 " />
+            </div>
+            
          </div>
+         
 
-        <div className="flex flex-col justify-center items-center gap-24 px-8 ">
+        <div className="flex flex-col justify-center items-center gap-20 px-8 ">
 
         {allQuote?.map((item) => {
             const hasVoted = item.voters.some((voter) => voter.userId === user?.userId);

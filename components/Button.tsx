@@ -17,3 +17,17 @@ export default function LoginBtn({ title, onClick  }: LoginBtnProps) {
         </button>
     );
 }
+
+
+export function MainBtn ({ title, onClick  }: LoginBtnProps) {
+    return (
+        <button
+              className="w-2/4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-2 
+            rounded-full text-white font-semibold mt-4 
+            hover:text-black hover:brightness-80 hover:cursor-pointer "
+            onClick={onClick}
+            >
+            {title}
+        </button>
+    );
+}
