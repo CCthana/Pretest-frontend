@@ -135,7 +135,8 @@ export default function HomePage() {
             <Searchbox onSearch={handleSearch}  />  
          </div>
 
-          <div className="fixed w-full bottom-8 flex justify-center items-center -ml-14 mt-8">
+         <div className="flex justify-center items-center">
+          <div className="fixed w-2/3 bottom-8 -ml-14 mt-8 ">
             <div className="w-full h-1/6 px-14 flex justify-center items-center mt-20 ">
                <div className="w-3/5 h-3/5 bg-white shadow-2xl rounded-xl">
                <div className="flex justify-between items-center gap-2 p-4 h-full">
@@ -156,7 +157,7 @@ export default function HomePage() {
                </div>
             </div> 
          </div> 
-
+      </div>
           
          <div className="flex justify-between items-baseline ">
             <div className="flex items-center hover:cursor-pointer" onClick={() => fetchAllQuote() }>
