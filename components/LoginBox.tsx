@@ -4,6 +4,7 @@ import LoginBtn from "./Button";
 import userApi from "@/app/api/user";
 import { useRouter } from "next/navigation";
 import Swal from 'sweetalert2';
+import axios from "axios";
 
 const Login = ({handleClickRegis}: { handleClickRegis: () => void }) => { 
     const [email, setEmail] = useState("");
@@ -37,6 +38,25 @@ const Login = ({handleClickRegis}: { handleClickRegis: () => void }) => {
       });
     }
   };
+
+
+  useEffect(() => {
+   const pingApi = async () => { 
+      try {
+         await axios.get("https://pretest-backend.onrender.com")
+         console.log("API is reachable");
+      } catch (error) {
+         console.error("Error pinging API:", error);
+      }
+   };
+
+   const interval = setInterval(() => {
+      pingApi();
+    }, 300000); 
+
+   return () => clearInterval(interval); 
+  }, []);
+
 
    return (     
 
