@@ -6,7 +6,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import userApi from "../api/user";
 import quoteApi from "../api/quote";
 import Swal from "sweetalert2"
-import { useRouter } from "next/navigation";
+import { motion } from "motion/react";
 
 interface User {
     userId: number;
@@ -34,8 +34,6 @@ export default function HomePage() {
  const [user, setUser] = useState<User>();
  const [allQuote, setAllQuote] = useState<Quote[]>([]);
  const [quote, setQuote] = useState('')
-
-
 
    const fetchUser = async () => {
         try {
@@ -172,7 +170,14 @@ export default function HomePage() {
             
          </div>
          
+      <motion.div
+         initial={{ opacity: 0, scale: 0.8 }} 
+         animate={{ opacity: 1, scale: 1 }} 
+         transition={{ duration: 0.3 }} 
+         viewport={{ once: false, amount: 0.2 }} 
+         >
 
+   
         <div className="flex flex-col justify-center items-center gap-20 px-8 ">
 
         {allQuote?.map((item) => {
@@ -190,7 +195,7 @@ export default function HomePage() {
             );
             })}
         </div>
-         
+      </motion.div>
              
                 
     

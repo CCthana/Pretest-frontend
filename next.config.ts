@@ -6,15 +6,15 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/auth/:path*",
-        destination: "http://localhost:8001/auth/:path*", 
+        destination: "https://pretest-backend.onrender.com/auth/:path*", 
       },
       {
         source: "/user/:path*", 
-        destination: "http://localhost:8001/user/:path*", 
+        destination: "https://pretest-backend.onrender.com/user/:path*", 
       },
       {
         source: "/quote/:path*",
-        destination: "http://localhost:8001/quote/:path*",
+        destination: "https://pretest-backend.onrender.com/quote/:path*",
       },
     ];
   },
