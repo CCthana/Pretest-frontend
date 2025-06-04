@@ -21,7 +21,7 @@ export default function QuoteCard(props: QuoteCardProps) {
                position: "center",
                icon: "info",
                title: `Vote this quote?`,
-               text: `"${props.title} + ${props.id}"`,
+               text: `"${props.title}"`,
                confirmButtonText: "Yes",
                 cancelButtonText: "No",
                 showCancelButton: true,
