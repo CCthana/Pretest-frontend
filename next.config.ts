@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
         source: "/quote/:path*",
         destination: "https://pretest-backend.onrender.com/quote/:path*",
       },
+      {
+        source: "/", 
+        destination: "https://pretest-backend.onrender.com",
+      },
     ];
   },
 };
